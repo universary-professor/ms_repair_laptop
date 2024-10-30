@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="repair_laptop.py"></script>
+    <title>Flask App</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="up-container">
+            <div class="stadic-container">
+                <button type="button" class="img_box" id="user_button" onclick="user_press()"></button>
+                <h4 id="name">Technovators</h4>
+            </div>
+            <button type="button" class="img_box" id="reference" onclick="reference_press()"></button>
+        </div>
+        
+        <div class="messages-container">
+
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="메시지를 입력하세요...">
+            <button type="button" class="img_box" id="send-button" onclick="send_press()"></button>
+        </div>
+        
+        <div class="model">
+            <h2>설정</h2>
+            <button id="reference" onclick="reference_press()"></button>
+            <button class="more-reference" id="feedback">문의</button>
+            <button class="more-reference" id="personal-reference">개인설정</button>
+        </div>
+    </div>
+</body>
+
+</html>
