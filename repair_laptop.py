@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, send_file
 import groq
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ client = groq.Client(
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return send_file('index.html')
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
