@@ -1,0 +1,193 @@
+/* 메인 컨테이너 */
+.main-container {
+    pointer-events: auto; /* 클릭 가능 */
+    height: 100vh;
+    flex-direction: column; /* 적층 구조 */
+}
+
+/* 상단 컨테이너 */
+.up-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row; /* 가로 방향 배치 */
+    justify-content: space-between; /* 양쪽 끝 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    height: 30px;
+    background-color: #1b3aff; /* 색상 어둡게 조정 가능 */
+    border-radius: 5px 5px 0 0;
+    z-index: 10; /* 다른 요소들보다 위에 */
+}
+
+/* 메시지 컨테이너 */
+.messages-container {
+    margin-top: 45px;
+    padding: 10px;
+    height: calc(100vh - 140px);
+    overflow-y: hidden; /* 초기에는 스크롤 바 숨김 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* 메시지가 아래로 쌓이도록 설정 */
+}
+
+/* 메시지 박스 */
+.message-box {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    max-width: 80%;
+    display: inline-block; /* inline-flex에서 inline-block으로 변경 */
+    word-wrap: break-word;
+}
+
+.message-box.sent {
+    align-self: flex-end;
+    background-color: #d1e7dd;
+    text-align: right;
+}
+
+.responseBox {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    max-width: 80%;
+    display: inline-block; /* inline-flex에서 inline-block으로 변경 */
+    word-wrap: break-word;
+}
+
+.message-box.received {
+    align-self: flex-start;
+    background-color: #f8d7da;
+    text-align: left;
+}
+
+/* 입력 컨테이너 */
+.input-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    bottom: 0; /* 항상 화면 하단에 위치 */
+    height: 80px;
+    background-color: white;
+    border: 0.3px solid gray; /* 경계 설정 */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* 그림자 */
+}
+
+/* 사용자 입력 필드 */
+#user-input {
+    flex: 1 1 calc(80% - 1vw); /* 가로 크기 */
+    height: calc((120% - 2vw)); /* 높이를 컨테이너에 맞춤 */
+    margin-right: 5px; /* 오른쪽 여백 */
+    font-size: calc(16px + 0.5vw); /* 폰트 크기 */
+    border: 0.5px solid gray; /* 외곽선 설정 */
+    border-radius: 5px;
+}
+
+/* 전송 버튼 */
+#send-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
+/* 스태틱 컨테이너 */
+.stadic-container {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+/* 사용자 버튼 */
+#user_button {
+    margin-left: 5px;
+    border: 1px solid;
+    width: 40px;
+    height: 40px;
+    padding: 1px;
+    background-image: url(img/user_face.png);
+    background-size: cover; /* 배경 이미지가 버튼에 맞게 조정 */
+}
+
+/* 사용자 이름 설정 */
+#name {
+    margin-left: 20px;
+    color: white;
+}
+
+/* 설정 버튼 */
+#reference {
+    background-color: #1b3aff;
+    border: 1px solid blue;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: calc(10px + 0.5vw);
+    margin-right: 20px;
+    background-image: url(img/reference.png);
+    background-size: cover; /* 배경 이미지가 버튼에 맞게 조정 */
+}
+
+/* 모델 설정 */
+.model {
+    position: fixed;
+    display: none;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* 그림자 */
+    z-index: 10; /* 다른 요소보다 위에 */
+    flex-direction: column; /* 수직 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    padding: 20px; /* 내부 여백 추가 */
+}
+
+.model h2,
+.model button {
+    margin: 10px 0; /* 버튼과 제목 간의 간격 */
+    margin-right: 20px;
+    width: 100%; /* 버튼 너비 100% */
+    padding: 10px;
+    font-size: 16px;
+    background-color: #1b3aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* 커서 포인터로 변경 */
+}
+
+/* 모델 버튼 호버 */
+.model button:hover {
+    background-color: #0056b3; /* 호버 배경색 변경 */
+}
+
+/* 블러 배경 설정 */
+.blur {
+    background-color: rgba(0, 0, 0, 0.5); /* 어두운 회색 반투명 */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* model보다 아래에 위치 */
+    pointer-events: auto; /* 클릭 이벤트 활성화 */
+}
+
+/* 추가 참조 설정 */
+.more-reference {
+    display: block; /* 세로 정렬을 위해 블록 요소로 변경 */
+    margin: 10px 0; /* 여백 추가 */
+    padding: 10px; /* 패딩 추가 */
+    border: 1px solid #ccc; /* 경계 설정 */
+    border-radius: 5px; /* 둥글게 처리 */
+}
